@@ -14,110 +14,110 @@ This project recreates the core features of an online code editor — directly i
 
 ### It allows users to:
 
-Write HTML, CSS, and JavaScript
+• Write HTML, CSS, and JavaScript
 
-Run code instantly
+• Run code instantly
 
-See live output in a preview panel
+• See live output in a preview panel
 
-Save and reload their work
+• Save and reload their work
 
-Everything runs locally in the browser, without any backend.
+• Everything runs locally in the browser, without any backend.
 
 ## Features
 
-Ace Editor for HTML, CSS, and JavaScript
+• Ace Editor for HTML, CSS, and JavaScript
 
-Live preview using a sandboxed iframe
+• Live preview using a sandboxed iframe
 
 ## Keyboard shortcuts
 
-Ctrl + Enter → Run code
+• Ctrl + Enter → Run code
 
-Ctrl + S → Save project
+• Ctrl + S → Save project
 
-Ctrl + J → Toggle output console
+• Ctrl + J → Toggle output console
 
 ## Basic validation
 
-JavaScript syntax checks
+• JavaScript syntax checks
 
-CSS brace warnings
+• CSS brace warnings
 
-HTML tag mismatch warnings
+• HTML tag mismatch warnings
 
-Project saving
+• Project saving
 
-Save to localStorage
+• Save to localStorage
 
-Download and reload projects as JSON
+• Download and reload projects as JSON
 
-Output console
+• Output console
 
-Shows logs, warnings, and errors
+• Shows logs, warnings, and errors
 
-Clear logs anytime
+• Clear logs anytime
 
-Responsive UI with keyboard-accessible tabs
+• Responsive UI with keyboard-accessible tabs
 
-### Tech Stack
+## Tech Stack
 
-HTML5
+• HTML5
 
-CSS3
+• CSS3
 
-JavaScript (ES6)
+• JavaScript (ES6)
 
-Ace Editor
+• Ace Editor
 
-LocalStorage
+• LocalStorage
 
-Netlify
+• Netlify
 
-No frameworks were used.
+• No frameworks were used.
 
-### What I Learned
+## What I Learned
 
-How browser-based editors work internally
+• How browser-based editors work internally
 
-Running user code safely using iframes
+• Running user code safely using iframes
 
-Validating HTML, CSS, and JavaScript without libraries
+• Validating HTML, CSS, and JavaScript without libraries
 
-Managing state with localStorage and JSON
+• Managing state with localStorage and JSON
 
-Structuring frontend code for clarity and maintainability
+• Structuring frontend code for clarity and maintainability
 
-Debugging real browser execution issues
+• Debugging real browser execution issues
 
-This project helped me move beyond tutorials and build something closer to real developer tools.
+• This project helped me move beyond tutorials and build something closer to real developer tools.
 
-**Why This Project Matters**
+### Why This Project Matter
 
-This is not a UI-only demo.
+• This is not a UI-only demo.
 
 **It shows:**
 
-Strong JavaScript fundamentals
+• Strong JavaScript fundamentals
 
-Understanding of browser behavior
+• Understanding of browser behavior
 
-Clean, readable code structure
+• Clean, readable code structure
 
-Focus on usability and reliability
+• Focus on usability and reliability
 
 ## Future Improvements
 
-Capture console.log output from the preview
+• Capture console.log output from the preview
 
-Better HTML and CSS validation
+• Better HTML and CSS validation
 
-Theme switching
+• Theme switching
 
-Autosave support
+• Autosave support
 
-**Author**
+#### Author
 [LinkedIn](https://www.linkedin.com/in/paneerselvam/)
 
-**License**
+#### License
 Open for learning and experimentation.
