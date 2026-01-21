@@ -81,8 +81,6 @@ const logger = new Logger(out);
 $("#clearOut")?.addEventListener("click", () => logger.clear());
 
 
-
-
 function makeEditor(id, mode) {
   const ed = ace.edit(id, {
     theme: "ace/theme/dracula",
@@ -179,7 +177,7 @@ function buildWebSrcdoc() {
   const html = ed_html.getValue();
   const css = ed_css.getValue();
   const js = ed_js.getValue();
-  const tests = ($("#testArea")?.value || "").trim();
+
 
   return `<!DOCTYPE html>
   <html lang="en" dir="ltr">
@@ -193,7 +191,6 @@ function buildWebSrcdoc() {
     <script>
      try {
         ${js}
-        ${tests ? `\n/* tests*/\n${tests}` : ''} 
      } catch (e) {
         console.error(e);
      }
@@ -242,7 +239,7 @@ function runWeb() {
   }
     
   preview.srcdoc = buildWebSrcdoc();
-  logger.log('Web preview updated');
+  logger.log('Preview rendered successfully');
 }
 
   $("#runWeb")?.addEventListener("click", () => runWeb());
@@ -302,8 +299,6 @@ function normalizeProject(raw){
   return {
     version: 1,
     kind: 'web-only',
-    assignment: typeof raw.assignment === 'string' ? raw.assignment : (raw.task || ''),
-    test: typeof raw.test === 'string' ? raw.test : (raw.tests || ''),
     html, css, js
   };
 }
@@ -314,6 +309,7 @@ function loadProject(raw) {
   if (typeof ed_html?.setValue === 'function') ed_html.setValue(proj.html, -1);
   if (typeof ed_css?.setValue  === 'function') ed_css.setValue(proj.css, -1);
   if (typeof ed_js?.setValue   === 'function') ed_js.setValue(proj.js, -1);
+
   logger.log('Project loaded.');
 }
 
@@ -386,5 +382,4 @@ if (typeof ace !== 'undefined') {
 } else {
   window.addEventListener('load', initializeEditor);
 };
-
 
