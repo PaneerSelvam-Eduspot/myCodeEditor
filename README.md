@@ -1,4 +1,4 @@
-Browser Code Editor (HTML, CSS, JavaScript
+# Browser Code Editor (HTML, CSS, JavaScript)
 
 
 A lightweight, browser-based code editor to write, run, and preview HTML, CSS, and JavaScript in real time.
