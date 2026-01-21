@@ -1,4 +1,4 @@
-# Browser Code Editor (HTML, CSS, JavaScript)
+# Browser Code Editor
 
 A lightweight, browser-based code editor to write, run, and preview HTML, CSS, and JavaScript in real time.
 Built using vanilla JavaScript to demonstrate strong fundamentals and understanding of how in-browser tools work.
@@ -92,7 +92,7 @@ This project recreates the core features of an online code editor — directly i
 
 • This project helped me move beyond tutorials and build something closer to real developer tools.
 
-### Why This Project Matter
+## Why This Project Matter
 
 • This is not a UI-only demo.
 
