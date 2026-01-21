@@ -1,20 +1,18 @@
 # Browser Code Editor (HTML, CSS, JavaScript)
 
-
 A lightweight, browser-based code editor to write, run, and preview HTML, CSS, and JavaScript in real time.
-Built using vanilla JavaScript to demonstrate strong fundamentals and understanding of how in-browser tools work.<img width="1917" height="963" alt="image" src="https://github.com/user-attachments/assets/50990ed2-c300-44ba-b78b-f46a859a3478" />
+Built using vanilla JavaScript to demonstrate strong fundamentals and understanding of how in-browser tools work.
 
-
-##Screenshots
-![Uploading image.png…]()
+## Screenshots
+<img width="1917" height="963" alt="image" src="https://github.com/user-attachments/assets/50990ed2-c300-44ba-b78b-f46a859a3478" />
 
 [🔗 Live Demo](https://browser-code-editor.netlify.app/)
 
-##What This Project Does
+## What This Project Does
 
 This project recreates the core features of an online code editor — directly in the browser.
 
-###It allows users to:
+### It allows users to:
 
 Write HTML, CSS, and JavaScript
 
@@ -26,13 +24,13 @@ Save and reload their work
 
 Everything runs locally in the browser, without any backend.
 
-##Features
+## Features
 
 Ace Editor for HTML, CSS, and JavaScript
 
 Live preview using a sandboxed iframe
 
-##Keyboard shortcuts
+## Keyboard shortcuts
 
 Ctrl + Enter → Run code
 
@@ -40,7 +38,7 @@ Ctrl + S → Save project
 
 Ctrl + J → Toggle output console
 
-##Basic validation
+## Basic validation
 
 JavaScript syntax checks
 
@@ -62,7 +60,7 @@ Clear logs anytime
 
 Responsive UI with keyboard-accessible tabs
 
-###Tech Stack
+### Tech Stack
 
 HTML5
 
@@ -78,7 +76,7 @@ Netlify
 
 No frameworks were used.
 
-##What I Learned
+### What I Learned
 
 How browser-based editors work internally
 
@@ -94,11 +92,11 @@ Debugging real browser execution issues
 
 This project helped me move beyond tutorials and build something closer to real developer tools.
 
-##Why This Project Matters
+**Why This Project Matters**
 
 This is not a UI-only demo.
 
-###It shows:
+**It shows:**
 
 Strong JavaScript fundamentals
 
@@ -108,7 +106,7 @@ Clean, readable code structure
 
 Focus on usability and reliability
 
-##Future Improvements
+## Future Improvements
 
 Capture console.log output from the preview
 
@@ -118,8 +116,8 @@ Theme switching
 
 Autosave support
 
-##Author
+**Author**
 [LinkedIn](https://www.linkedin.com/in/paneerselvam/)
 
-##License
+**License**
 Open for learning and experimentation.
