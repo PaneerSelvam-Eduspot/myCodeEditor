@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Code Editor</title>
+  <meta name="description" content="Interactive web code editor supporting HTML, CSS, and JavaScript with live preview and simple validation tests inside the browser." />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+
+  <header>
+    <div class="container row">
+      
+      <div class="brand">
+        <div class="logo"><img src="assets/Logo.png" alt="Logo"></div>
+        <div class="title">Code Editor - Live In Browser</div>
+      </div>
+
+      <div class="row">
+        <button class="btn secondary" id="saveBtn" title="Save work locally">
+          <i class="fa fa-save"></i> <span>Save</span>
+        </button>
+        <button class="btn secondary" id="loadBtn" title="Load work file">
+          <i class="fa fa-folder-open"></i> <span>Load</span>
+        </button>
+        <input id="openFile" type="file" accept="application/json" hidden>
+      </div>
+
+    </div>
+  </header>
+ 
+  <div class="resizable-container">
+  <main>
+
+    <!-- Editors -->
+    <section class="stack" id="web-only">
+      <div id="webEditors" class="stack card panel">
+        <div class="row">
+          <h2>HTML / CSS / JS</h2>
+          <div class="row">
+            <button class="btn ok" id="runWeb"><i class="fa fa-play"></i> Run</button>
+            <button class="btn secondary" id="openPreview"><i class="fa fa-external-link"></i> Open preview in window</button>
+          </div>
+        </div>
+
+        <div class="tabs" id="webTabs" role="tablist" aria-label="Web editors">
+          <button class="tab active" role="tab" aria-selected="true" tabindex="0" data-pane="html">
+           <i style="color: rgb(251, 190, 76); " class="fa-brands fa-html5"></i> HTML
+          </button>
+          <button class="tab" role="tab" aria-selected="false" tabindex="-1" data-pane="css">
+           <i  style="color: rgb(15, 89, 113);" class="fa-brands fa-css"></i> CSS
+          </button>
+          <button class="tab" role="tab" aria-selected="false" tabindex="-1" data-pane="js">
+            <i style="color: yellow;" class="fa-brands fa-js"></i> JavaScript
+          </button>
+        </div>
+
+
+        <div class="editor-wrap" data-pane="html"><div id="ed_html" class="editor"></div></div>
+        <div class="editor-wrap" data-pane="css" hidden><div id="ed_css" class="editor"></div></div>
+        <div class="editor-wrap" data-pane="js" hidden><div id="ed_js" class="editor"></div></div>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <aside id="preview-panel" class="card panel stack">
+        <div class="stack preview-container">
+          <h3><i class="fa fa-eye" style="color: lightblue;"></i>Preview</h3>
+          <iframe id="preview" class="preview" sandbox="allow-scripts allow-same-origin allow-modals"></iframe>
+        </div>
+     
+    </aside>
+
+  </main>
+  
+   <!--Output Console-->
+    <div class="outt">
+      
+      <div class="outt-title" aria-hidden="true">
+      <i class="fa fa-terminal"></i> Output
+      </div>
+
+      <button class="outt-close remove" aria-label="Close output" title="Close output">
+        <i class="fa fa-remove" aria-hidden="true"></i>
+      </button>
+
+      <div class="row output-btn">
+        <button class="btn secondary" id="clearOut"><i class="fa fa-trash"></i> Clear log</button>
+      </div>
+
+      <div id="output" class="out" aria-live="polite"></div>
+    </div>
+      </div>
+      
+  <div class="footer">
+    <div class="copyright">
+    &copy;  Paneer_Dev — All rights reserved 
+    </div>
+  
+    <button class="console-btn" title="console (Ctrl+J)" aria-label="Toggle console">
+    <i class="fa-solid fa-angle-up"></i>
+    </button>
+  </div>
+ 
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.43.2/ace.js"
+    integrity="sha512-ZIa+FlPaGDSM+lTl9JaxnQvcfma7ETsOHd9Thbhp5u4RX1uYiDNW7XvUrXv4dJSPetXbiTzWilHEkSg4YpmltQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    >
+  </script>
+  
+  <script src="script.js"></script>
+</body>
+</html>
