@@ -1,123 +1,176 @@
 # Browser Code Editor
 
-A lightweight, browser-based code editor to write, run, and preview HTML, CSS, and JavaScript in real time.
-Built using vanilla JavaScript to demonstrate strong fundamentals and understanding of how in-browser tools work.
+A lightweight, browser-based code editor for writing, running, and previewing **HTML, CSS, and JavaScript** in real time.
+
+Built with vanilla JavaScript, the project focuses on browser APIs, client-side state management, code execution through a sandboxed iframe, and practical editor interactions.
 
 ## Screenshots
-<img width="1917" height="963" alt="image" src="https://github.com/user-attachments/assets/50990ed2-c300-44ba-b78b-f46a859a3478" />
+
+![Browser Code Editor Preview](./assets/code-editor-preview.png)
 
 [🔗 Live Demo](https://browser-code-editor.netlify.app/)
 
-## What This Project Does
-
-This project recreates the core features of an online code editor — directly in the browser.
-
-### It allows users to:
-
-• Write HTML, CSS, and JavaScript
-
-• Run code instantly
-
-• See live output in a preview panel
-
-• Save and reload their work
-
-• Everything runs locally in the browser, without any backend.
-
 ## Features
 
-• Ace Editor for HTML, CSS, and JavaScript
+- Write HTML, CSS, and JavaScript using **Ace Editor**.
+- Run code and render the result in a live preview panel.
+- Open the preview in a separate browser window.
+- Save projects to `localStorage`.
+- Download projects as JSON files.
+- Load previously saved JSON project files.
+- Restore the latest project automatically when the application starts.
+- View logs, warnings, and errors in an output console.
+- Clear or toggle the output console.
+- Responsive two-column layout that switches to a single-column layout on smaller screens.
+- Keyboard-accessible editor tabs with arrow-key navigation.
 
-• Live preview using a sandboxed iframe
+## Validation and Execution
 
-## Keyboard shortcuts
+Before rendering the preview, the editor performs lightweight checks:
 
-• Ctrl + Enter → Run code
+- **HTML:** Compares opening and closing tag counts to identify possible mismatches.
+- **CSS:** Checks whether opening and closing braces are balanced.
+- **JavaScript:** Uses `new Function()` to detect syntax errors before execution.
 
-• Ctrl + S → Save project
+The preview is generated using an iframe `srcdoc` document containing the user's HTML, CSS, and JavaScript:
 
-• Ctrl + J → Toggle output console
+```text
+HTML + CSS + JavaScript
+          ↓
+      srcdoc document
+          ↓
+   Sandboxed iframe preview
+```
 
-## Basic validation
+The iframe uses the following sandbox permissions:
 
-• JavaScript syntax checks
+```html
+sandbox="allow-scripts allow-same-origin allow-modals"
+```
 
-• CSS brace warnings
+These checks are intended as basic feedback rather than a complete HTML, CSS, or JavaScript validation system.
 
-• HTML tag mismatch warnings
+## Project Persistence
 
-• Project saving
+Projects are represented as JSON objects containing the editor content:
 
-• Save to localStorage
+```json
+{
+  "version": 1,
+  "kind": "web-only",
+  "html": "...",
+  "css": "...",
+  "js": "..."
+}
+```
 
-• Download and reload projects as JSON
+The application uses `localStorage` for browser persistence and also supports exporting and importing projects as JSON files.
 
-• Output console
+The saved project format is normalized when loading, allowing the application to handle both the current top-level structure and an older nested `web` structure.
 
-• Shows logs, warnings, and errors
+## Keyboard Shortcuts
 
-• Clear logs anytime
+| Shortcut | Action |
+| --- | --- |
+| `Ctrl + Enter` | Run the current web project |
+| `Ctrl + S` | Save the project locally and download it as JSON |
+| `Ctrl + J` | Toggle the output console |
+| `Arrow Left / Arrow Right` | Navigate between HTML, CSS, and JavaScript tabs |
 
-• Responsive UI with keyboard-accessible tabs
+> On macOS, the editor uses `Command + Enter` and `Command + S` for the run and save actions.
 
 ## Tech Stack
 
-• HTML5
+- **HTML5** — Application structure
+- **CSS3** — Responsive layout and visual styling
+- **Vanilla JavaScript (ES6+)** — Application logic and browser interactions
+- **Ace Editor** — HTML, CSS, and JavaScript editing
+- **LocalStorage** — Client-side project persistence
+- **File API and Blob API** — Project import and JSON export
+- **Sandboxed iframe** — Live code preview
+- **Font Awesome** — Interface icons
+- **Netlify** — Deployment
 
-• CSS3
+No frontend framework or backend service is used.
 
-• JavaScript (ES6)
+## Architecture Overview
 
-• Ace Editor
+The application is organized around a few focused responsibilities:
 
-• LocalStorage
+| Responsibility | Implementation |
+| --- | --- |
+| Editor management | Ace Editor instances for HTML, CSS, and JavaScript |
+| Preview generation | Builds an HTML document using `srcdoc` |
+| Validation | Lightweight HTML, CSS, and JavaScript checks |
+| Persistence | `StorageService` using `localStorage` |
+| File handling | `FileService` for JSON export and import |
+| Logging | `Logger` for timestamps, warnings, errors, and clearing output |
+| UI interaction | Vanilla JavaScript event listeners and keyboard handlers |
 
-• Netlify
+The project keeps the implementation framework-free, making browser APIs and application behavior explicit.
 
-• No frameworks were used.
+## Running Locally
 
-## What I Learned
+### 1. Clone the repository
 
-• How browser-based editors work internally
+```bash
+git clone <your-repository-url>
+cd myCodeEditor
+```
 
-• Running user code safely using iframes
+### 2. Run the project
 
-• Validating HTML, CSS, and JavaScript without libraries
+Because this is a static frontend project, it can be served using any local static server.
 
-• Managing state with localStorage and JSON
+For example, with VS Code:
 
-• Structuring frontend code for clarity and maintainability
+- Install the **Live Server** extension.
+- Open the project folder.
+- Start Live Server from `index.html`.
 
-• Debugging real browser execution issues
+You can also deploy the project directly to a static hosting provider such as Netlify.
 
-• This project helped me move beyond tutorials and build something closer to real developer tools.
+## Limitations
 
-## Why This Project Matter
-
-• This is not a UI-only demo.
-
-**It shows:**
-
-• Strong JavaScript fundamentals
-
-• Understanding of browser behavior
-
-• Clean, readable code structure
-
-• Focus on usability and reliability
+- Validation is lightweight and does not fully parse HTML, CSS, or JavaScript.
+- HTML validation compares tag counts and may not detect every structural mismatch.
+- CSS validation checks brace balance but does not validate CSS syntax.
+- JavaScript validation checks syntax before execution but does not provide a full runtime error system for the preview.
+- Preview console messages are not captured directly in the parent output console.
+- Projects are stored locally in the current browser and are not synchronized across devices.
+- The project does not include authentication, cloud storage, collaborative editing, or a backend execution environment.
+- Executing user-provided code in a browser iframe should not be treated as a complete security boundary for untrusted production workloads.
 
 ## Future Improvements
 
-• Capture console.log output from the preview
+- Capture `console.log`, warnings, and runtime errors from the preview iframe.
+- Add stronger HTML, CSS, and JavaScript validation.
+- Add theme switching.
+- Introduce autosave support.
+- Improve runtime error reporting in the preview.
+- Add project naming and multiple saved projects.
 
-• Better HTML and CSS validation
+## What I Learned
 
-• Theme switching
+- How browser-based code editors manage multiple editor instances.
+- How to generate a live preview using an iframe and `srcdoc`.
+- How to use browser storage and JSON serialization for project persistence.
+- How to use the File API and Blob API for project export and import.
+- How to organize browser logic into focused services such as storage, file handling, and logging.
+- How to implement keyboard shortcuts and accessible tab navigation.
+- How to handle basic validation and browser execution errors without external frameworks.
 
-• Autosave support
+## Found something to fix?
+Since I am a developer who is always learning, I might have missed something! If you find a bug or have a suggestion on how I can make the Promise logic better, please feel free to open an Issue or send a Pull Request. I would love to learn from your feedback!
 
-#### Author
+## Author
+
 [LinkedIn](https://www.linkedin.com/in/paneerselvam/)
 
-#### License
+## License
+
 Open for learning and experimentation.
+
+## Like this project?
+If you are feeling generous, [Buy me a Coffee!](https://ko-fi.com/paneerselvam)
+
