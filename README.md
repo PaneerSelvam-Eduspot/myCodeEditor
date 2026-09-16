@@ -6,7 +6,7 @@ Built with vanilla JavaScript, the project focuses on browser APIs, client-side 
 
 ## Screenshots
 
-<img width="1533" height="772" alt="image" src="https://github.com/user-attachments/assets/62821287-d513-45b6-8d19-ed2f1f3d4ad5" />
+<img width="1535" height="728" alt="image" src="https://github.com/user-attachments/assets/42ab153c-60ac-4b2a-a126-d0b96ab7f53a" />
 
 [🔗 Live Demo](https://browser-code-editor.netlify.app/)
 
